@@ -81,8 +81,6 @@ def psi_aiptw(q_t0, q_t1, g, t, y, truncate_level=0.05):
     return np.mean(ite)
 
 
-
-
 def psi_naive(q_t0, q_t1, g, t, y, truncate_level=0.):
     ite = (q_t1 - q_t0)
     return np.mean(truncate_by_g(ite, g, level=truncate_level))

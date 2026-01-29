@@ -1,6 +1,6 @@
 import tensorflow as tf
 import keras.backend as K
-from keras.engine.topology import Layer
+from keras.layers import Layer
 from keras.metrics import binary_accuracy
 from keras.layers import Input, Dense, Concatenate, BatchNormalization, Dropout
 from keras.models import Model
@@ -242,4 +242,3 @@ def post_cut(nednet, input_dim, reg_l2=0.01):
 
     model = Model(inputs=input, outputs=concat_pred)
     return model
-

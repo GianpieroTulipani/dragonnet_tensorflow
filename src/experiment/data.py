@@ -7,9 +7,6 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 
-
-
-
 def load_and_format_covariates(file_path='~/ml/IBM-Causal-Inference-Benchmarking-Framework/data/LBIDD/x.csv'):
     df = pd.read_csv(file_path, index_col='sample_id',header=0, sep=',')
     return df
@@ -44,18 +41,26 @@ def load_params(file_path='/Users/claudiashi/data/small_sweep/params.csv'):
 
 
 def main():
-    data_path = '../data/LIBDD'
-    simulation_id = '43b75dcfc0fc49beb95a111098ae11b1'
+    simulation_id = '0a2adba672c7478faa7a47137a87a3ab'
 
-    covariate_path = os.path.join(data_path, 'x.csv')
+    base_path = os.getcwd()
+
+    covariate_path = os.path.join(base_path, 'data', 'x.csv')
     all_covariates = load_and_format_covariates(covariate_path)
-    simulation_file = os.path.join(data_path, 'scaling/factuals/', simulation_id + '.csv')
+
+    simulation_file = os.path.join(base_path, 'data', 'practice_scaling', 'scaling', simulation_id + '.csv')
     t, y, sample_id, x = load_treatment_and_outcome(all_covariates, simulation_file)
-
-
-
+    
+    print("\nTreatment sample (t):")
+    print(t[0])  # first 5 treatments
+    print("\nOutcome sample (y):")
+    print(y[0])  # first 5 outcomes
+    print("\nFeature sample (x):")
+    print(x[0])  # first 5 rows of features
+    print("\nSample IDs:")
+    print(sample_id[0])  # first 5 sample IDs
 
 
 if __name__ == '__main__':
-    # main()
+    main()
     pass
