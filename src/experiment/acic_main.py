@@ -20,7 +20,6 @@ def _split_output(yt_hat, t, y, y_scaler, x, index):
     if yt_hat.shape[1] == 4:
         eps = yt_hat[:, 3][0]
     else:
-
         eps = np.zeros_like(yt_hat[:, 2])
 
     y = y_scaler.inverse_transform(y.copy())
@@ -120,7 +119,7 @@ def train_and_predict_ned(t, y_unscaled, x, targeted_regularization=True, output
 
     train_outputs = []
     test_outputs = []
-    runs = 25
+    runs = 1
     for i in range(runs):
         nednet = make_ned(x.shape[1], 0.01)
 
