@@ -1,4 +1,4 @@
-from .models import *
+from experiment.models import *
 import os
 import glob
 import argparse
@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 import keras.backend as K
 from keras.optimizers import SGD, Adam
 from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard, ReduceLROnPlateau, TerminateOnNaN
-from .data import load_treatment_and_outcome, load_and_format_covariates
+from experiment.data import load_treatment_and_outcome, load_and_format_covariates
 import numpy as np
 
 
